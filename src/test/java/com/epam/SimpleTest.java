@@ -13,7 +13,9 @@ import static com.epam.enums.MenuButtons.METALS_AND_COLORS;
 import static com.epam.jdi.uitests.core.settings.JDISettings.logger;
 import static com.epam.site.JdiSite.*;
 
-
+// TODO where is .gitignore ?
+// TODO I got your point with MCD and MCR, but in this particular case one class quite enough...
+// TODO Such a strange name of class...
 public class SimpleTest extends TestNGBase {
 
     @BeforeClass(alwaysRun = true)
