@@ -1,7 +1,5 @@
 package com.epam.entities;
 
-import com.epam.enums.*;
-
 import static com.epam.enums.Colors.RED;
 import static com.epam.enums.Even.EIGHT;
 import static com.epam.enums.Metals.SELEN;
@@ -12,48 +10,45 @@ import static com.epam.enums.Vegetables.CUCUMBER;
 import static com.epam.enums.Vegetables.TOMATO;
 
 public class MetalsColorsData {
-    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(
-            THREE, EIGHT, new Nature[]{WATER, FIRE}
-            , RED, SELEN, new Vegetables[]{CUCUMBER, TOMATO});
-    private Odds odds;
-    private Even even;
-    private Nature[] elements;
-    private Colors color;
-    private Metals metal;
-    private Vegetables[] vegetables;
+    public static MetalsColorsData INITIAL_DATA = new MetalsColorsData(new int[]{
+            THREE.digitValue, EIGHT.digitValue}, new String[]{WATER.value, FIRE.value}
+            , RED.value, SELEN.value, new String[]{CUCUMBER.value, TOMATO.value});
+    private int[] summary;
+    private String[] elements;
+    private String color;
+    private String metals;
+    private String[] vegetables;
 
-    public MetalsColorsData(
-            Odds odds, Even even, Nature[] elements, Colors color, Metals metal
-            , Vegetables[] vegetables) {
-        this.odds = odds;
-        this.even = even;
+    private MetalsColorsData(int[] summary, String[] elements, String color, String metals, String[] vegetables) {
+        this.summary = summary;
         this.elements = elements;
         this.color = color;
-        this.metal = metal;
+        this.metals = metals;
         this.vegetables = vegetables;
     }
 
-    public Odds getOdds() {
-        return odds;
+    public String getOdds() {
+        return String.valueOf(summary[0]);
     }
 
-    public Even getEven() {
-        return even;
+    public String getEven() {
+        return String.valueOf(summary[1]);
     }
 
-    public Nature[] getElements() {
+    public String[] getElements() {
         return elements;
     }
 
-    public Colors getColor() {
+
+    public String getColor() {
         return color;
     }
 
-    public Metals getMetal() {
-        return metal;
+    public String getMetal() {
+        return metals;
     }
 
-    public Vegetables[] getVegetables() {
+    public String[] getVegetables() {
         return vegetables;
     }
 }

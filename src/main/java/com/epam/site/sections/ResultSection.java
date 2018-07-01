@@ -1,17 +1,20 @@
 package com.epam.site.sections;
 
 import com.codeborne.selenide.Condition;
+import com.epam.entities.MetalsColorsData;
 import com.epam.entities.MetalsColorsResult;
 import com.epam.jdi.uitests.web.selenium.elements.common.Text;
+import com.epam.jdi.uitests.web.selenium.elements.complex.TextList;
 import com.epam.jdi.uitests.web.selenium.elements.composite.Section;
 import org.openqa.selenium.support.FindBy;
-
-import java.util.Formatter;
+import org.testng.Assert;
 
 
 public class ResultSection extends Section {
 
-    Formatter formatter;
+    @FindBy(css = ".results li")
+    private TextList resultList;
+
     @FindBy(css = ".summ-res")
     private Text summaryResult;
 
@@ -36,4 +39,15 @@ public class ResultSection extends Section {
         vegetablesResult.shouldHave(Condition.text("Vegetables: " + resultData.getVegetables()[0] + ", "
                 + resultData.getVegetables()[1]));
     }
+
+    public void checkResults(MetalsColorsData resultData) {
+        String[] expectedResult = new MetalsColorsResult().getResult(resultData);
+        String logOfSection = resultList.getValue();
+        for (String line : expectedResult) {
+            System.out.println(line);
+            Assert.assertTrue(logOfSection.contains(line), "Wrong value of line for the result section: \n"
+                    + line);
+        }
+    }
+
 }
