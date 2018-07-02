@@ -18,6 +18,9 @@ public class HeaderSection extends Section {
     @FindBy(css = ".profile-photo")
     private Button profilePhoto;
 
+    @FindBy(css = ".logout button")
+    private Button logoutButton;
+
     @FindBy(css = ".dark-gray [href='metals-colors.html']")
     private Button metalsColors;
 
@@ -31,6 +34,11 @@ public class HeaderSection extends Section {
     public void login(User data) {
         profilePhoto.click();
         loginForm.loginAs(data);
+    }
+
+    public void logout() {
+        profilePhoto.click();
+        logoutButton.click();
     }
 
     public void goToMetalsColors() {

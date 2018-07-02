@@ -11,4 +11,9 @@ public enum Vegetables {
     Vegetables(String text) {
         this.value = text;
     }
+
+    @Override
+    public String toString() {
+        return value;
+    }
 }

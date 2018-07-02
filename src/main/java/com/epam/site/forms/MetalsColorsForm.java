@@ -29,26 +29,24 @@ public class MetalsColorsForm extends Form {
     @FindBy(css = "[type='text']")
     private TextField metals;
 
-    // TODO try to combine this elements.
-    // TODO you can override some methods, create your own element, etc.
     @FindBy(css = ".salad button")
     private Button vegetablesButton;
 
     @FindBy(css = ".salad label")
     private CheckList vegetables;
-    // !TODO
 
     @FindBy(css = "#submit-button")
     private Button submit;
 
     public void submit(MetalsColorsData data) {
         elements.check(data.getElements());
-        color.select(data.getColor().value);
-        metals.setValue(data.getMetal().value);
+        color.select(data.getColor());
+        metals.setValue(data.getMetal());
         vegetablesButton.click();
         vegetables.select(DEFAULT_VEGETABLE.value);
-        // TODO why don't you parametrize field with class ? Generics and so on...
-        vegetables.check(data.getVegetables());
+        for (String vegetable : data.getVegetables()) {
+            vegetables.check(vegetable);
+        }
         submit.click();
     }
 }
