@@ -1,5 +1,6 @@
 package com.epam.entities;
 
+// TODO lombok ?
 public class User {
     public static User PITER_CHAILOVSKI = new User("epam", "1234",
             "PITER CHAILOVSKI");

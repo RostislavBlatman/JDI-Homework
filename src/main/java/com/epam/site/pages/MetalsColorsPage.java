@@ -17,6 +17,7 @@ public class MetalsColorsPage extends WebPage {
     public ResultSection resultSection;
 
     public void submitForms(MetalsColorsData data) {
+        // TODO read test scenario carefully, please
         summaryForm.calculate(data);
         metalsColorsForm.submit(data);
     }
