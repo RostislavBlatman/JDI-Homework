@@ -17,6 +17,8 @@ import static com.epam.enums.Vegetables.DEFAULT_VEGETABLE;
 
 public class MetalsColorsForm extends Form {
 
+    public SummaryForm summaryForm;
+
     @Css(".vertical-group label")
     private CheckList<Nature> elements;
 
@@ -39,6 +41,7 @@ public class MetalsColorsForm extends Form {
     private Button submit;
 
     public void submit(MetalsColorsData data) {
+        summaryForm.calculate(data);
         elements.check(data.getElements());
         color.select(data.getColor());
         metals.setValue(data.getMetal());
